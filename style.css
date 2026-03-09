@@ -1,0 +1,113 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* منع الـ scrolling عشان الكارت يفضل ثابت في النص */
+    touch-action: none; 
+}
+
+.container {
+    position: relative;
+    /* العرض بقى بالنسيبة المئوية عشان يناسب شاشات الموبايل الصغيرة */
+    width: 90%; 
+    max-width: 350px; /* ميعديش الحجم ده في الشاشات الكبيرة */
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 25px; /* خليت الحواف أنعم شوية */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* السنترة الذهبية */
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
+}
+
+h2 { 
+    color: #d81b60; 
+    margin-bottom: 10px; 
+    font-size: clamp(20px, 5vw, 24px); /* حجم الخط يتغير حسب الشاشة */
+}
+
+p { 
+    color: #555; 
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+input {
+    width: 86%;
+    padding: 15px; /* زيادة الـ padding عشان الكتابة بالموبايل تبقى أسهل */
+    margin-bottom: 15px;
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    background-color: #fffafb;
+    transition: 0.3s;
+    /* منع الزووم التلقائي في الآيفون لما تدوس على الـ input */
+}
+
+input:focus { 
+    border-color: #d81b60; 
+    background-color: #fff;
+}
+
+button {
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    /* عشان التتش في الموبايل يبقى سريع */
+    -webkit-tap-highlight-color: transparent; 
+}
+
+button:active {
+    transform: scale(0.98); /* تأثير ضغطة الزرار */
+    background-color: #ad1457;
+}
+
+.error { 
+    color: #e91e63; 
+    font-size: 13px; 
+    display: none; 
+    margin-top: -10px; 
+    margin-bottom: 10px;
+}
+
+/* لو الموبايل بالعرض (Landscape) */
+@media (max-height: 500px) {
+    .container { height: 100%; }
+    .card { padding: 15px; }
+    h2 { margin-bottom: 5px; }
+}

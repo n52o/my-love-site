@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة خاصة ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card active" id="card1">
+            <h2>أول اختبار ❤️</h2>
+            <p>اكتبي الكلمة اللي بنقولها دايماً..</p>
+            <input type="text" id="input1" placeholder="اكتبي هنا...">
+            <p class="error" id="err1">مش دي الكلمة! ركزي 😉</p>
+            <button onclick="validateStep(1)">تـم</button>
+        </div>
+
+        <div class="card" id="card2">
+            <h2>تاني اختبار 🎂</h2>
+            <p>تاريخ عيد ميلادك كام؟</p>
+            <input type="text" id="input2" placeholder="مثلاً: 15/5">
+            <p class="error" id="err2">التاريخ غلط.. ركزي</p>
+            <button onclick="validateStep(2)">تـم</button>
+        </div>
+
+        <div class="card" id="card3">
+            <h2>تالت اختبار 🎈</h2>
+            <p>عندك كام سنة دلوقتي؟</p>
+            <input type="number" id="input3" placeholder="اكتبي سنك">
+            <p class="error" id="err3">السن مش مظبوط!</p>
+            <button onclick="validateStep(3)">تـم</button>
+        </div>
+
+        <div class="card" id="card4">
+            <h2>رابع اختبار 🤝</h2>
+            <p>اليوم اللي اتقابلنا فيه كان يوم كام؟</p>
+            <input type="text" id="input4" placeholder="مثلاً: 20/10">
+            <p class="error" id="err4">معقولة نسيتي اليوم ده؟</p>
+            <button onclick="validateStep(4)">تـم</button>
+        </div>
+
+        <div class="card" id="card5">
+            <h2>خامس اختبار 📏</h2>
+            <p>طولك كام سم؟</p>
+            <input type="number" id="input5" placeholder="اكتبي طولك بالظبط">
+            <p class="error" id="err5">الرقم مش صح!</p>
+            <button onclick="validateStep(5)">تـم</button>
+        </div>
+
+        <div class="card" id="card6">
+            <h2>آخر سؤال ✨</h2>
+            <p>جاهزة تشوفي المفاجأة؟ (اكتبي "جاهزة")</p>
+            <input type="text" id="input6" placeholder="...">
+            <p class="error" id="err6">اكتبي الكلمة صح عشان تشوفي المفاجأة</p>
+            <button onclick="validateStep(6)">يلا بينا!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

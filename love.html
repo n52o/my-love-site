@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايتنا الجميلة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+        :root {
+            --main-bg: #fff5f5;
+            --accent-color: #ff4d6d;
+            --card-bg: rgba(255, 255, 255, 0.4);
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            font-family: "Cairo", sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* شاشة البداية */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease;
+        }
+
+        .intro-card {
+            width: 85%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 20px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        #typing-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            min-height: 120px;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .btn-start {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        /* الصفحة الرئيسية */
+        .container {
+            padding: 30px 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            display: none;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            margin-bottom: 30px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        /* تنسيق العداد */
+        .timer-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .timer-display {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .timer-segment {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px 5px;
+            border-radius: 12px;
+        }
+
+        .timer-num {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="images/bf856b0e-8747-401b-9d53-3e04f5e061a1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="intro-overlay">
+        <div class="intro-card">
+            <div id="typing-text"></div>
+            <button class="btn-start" id="start-btn" onclick="startJourney()">أكملي الرحلة</button>
+        </div>
+    </div>
+
+    <div class="container" id="main-content">
+        
+        <div class="card">
+            <div class="timer-title">بقالنا سوا ❤️</div>
+            <div class="timer-display">
+                <div class="timer-segment"><span class="timer-num" id="days">0</span><span class="timer-label">يوم</span></div>
+                <div class="timer-segment"><span class="timer-num" id="hours">0</span><span class="timer-label">ساعة</span></div>
+                <div class="timer-segment"><span class="timer-num" id="minutes">0</span><span class="timer-label">دقيقة</span></div>
+                <div class="timer-segment"><span class="timer-num" id="seconds">0</span><span class="timer-label">ثانية</span></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/photoone.jpg" alt="صورة 1">
+            <p>أنا غيرت من نفسي  واسف على كل اللي حصل بسببي كنت شاب طايش مش عارف كنت بعمل ايه، بس دلوقتي عرفت وحسيت اني ابقا معاكي وجمبك ، في حجات شوفتها منك وعملتيلها خلتني ابددأ اغير من نفسي عشان اهلي وعشانك وعشان نفسي تتقبلي اني ابقا حبيبك 💗؟؟! ومعاكي في رحلتك باقيه
+</p>
+        </div>
+
+        <div class="card">
+            <img src="images/phototwo.jpg" alt="صورة 2">
+            <p>ضحكتك دي هي السبب اللي بيخليني أبتسم دايماً.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/photothree.jpg" alt="صورة 3">
+            <p>153 سم توقعني كده وتغيرني 😂😂😂 ،💗💗💗 بحبك يا دنيا أوي .</p>
+        </div>
+
+    </div>
+
+    <script>
+        // --- تعديل التاريخ من هنا ---
+        const startDate = new Date("November 12 2024 00:00:00").getTime(); // غير التاريخ ده لتاريخ أول يوم ليكم
+        // ------------------------
+
+        const message = "يا أغلى إنسانة في قلبي.. \n النهاردة حبيت أعملك حاجة بسيطة تعبر عن حبي ليكي.. \n جاهزة نبدأ رحلتنا سوا؟";
+        let index = 0;
+
+        function typeWriter() {
+            if (index < message.length) {
+                let char = message.charAt(index);
+                document.getElementById("typing-text").innerHTML += (char === '\n') ? '<br>' : char;
+                index++;
+                setTimeout(typeWriter, 100);
+            } else {
+                document.getElementById("start-btn").style.display = "inline-block";
+            }
+        }
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = now - startDate;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = d;
+            document.getElementById("hours").innerHTML = h;
+            document.getElementById("minutes").innerHTML = m;
+            document.getElementById("seconds").innerHTML = s;
+        }
+
+        function startJourney() {
+            document.getElementById("bg-music").play();
+            document.getElementById("intro-overlay").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("intro-overlay").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+                setInterval(updateTimer, 1000); // يبدأ العداد يشتغل
+                updateTimer();
+            }, 1000);
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
